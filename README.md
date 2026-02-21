@@ -13,8 +13,8 @@ Este proyecto implementa un sistema de seguimiento de objetos en tiempo real uti
 
 ## Contenido del Repositorio
 
-1. **`Vision_Controlled_Object_Tracking.py`**: Script de Python que utiliza OpenCV para detectar un objeto por color (HSV), calcula su centro de masa y envía las coordenadas mapeadas vía serial.
-2. **`Vision_Controlled_Eye_Animation.ino`**: Código para el ESP32 que recibe las coordenadas, gestiona el borrado selectivo de pixeles para evitar parpadeos y ejecuta una animación de parpadeo aleatorio.
+1. **`Object_Tracker/main.py`**: Script de Python que utiliza OpenCV para detectar un objeto por color (HSV), calcula su centro de masa y envía las coordenadas mapeadas vía serial.
+2. **`Display_Control.ino`**: Código para el ESP32 que recibe las coordenadas, gestiona el borrado selectivo de pixeles para evitar parpadeos y ejecuta una animación de parpadeo aleatorio.
 3. **Diagrama de Conexiones**: Detalle de los pines SPI utilizados.
 
 ## Instrucciones de Uso
@@ -33,7 +33,7 @@ Este proyecto implementa un sistema de seguimiento de objetos en tiempo real uti
    ```bash
    pip install opencv-python numpy pyserial
    ```
-3. En el script `Vision_Controlled_Object_Tracking.py`, asegúrate de que la variable `SERIAL_PORT` apunte al puerto correcto (ej. `/dev/ttyUSB0` en Linux o `COMX` en Windows).
+3. En el script `main.py`, asegúrate de que la variable `SERIAL_PORT` apunte al puerto correcto (ej. `/dev/ttyUSB0` en Linux o `COMX` en Windows).
 
 ### Conexiones Físicas
 Realiza las siguientes conexiones entre el ESP32 y la pantalla ST7735:
@@ -55,7 +55,7 @@ Realiza las siguientes conexiones entre el ESP32 y la pantalla ST7735:
 2. Coloca la webcam apuntando al área de trabajo.
 3. Ejecuta el script de Python:
    ```bash
-   python Vision_Controlled_Object_Tracking.py
+   python3 main.py
    ```
 4. Mueve un objeto de color naranja (o el color que hayas calibrado) frente a la cámara. Los ojos en la pantalla TFT seguirán el movimiento del objeto de forma fluida.
 
